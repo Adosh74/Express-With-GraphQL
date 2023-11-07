@@ -1,7 +1,11 @@
-import express from 'express';
+import dotenv from 'dotenv';
+import { graphqlHTTP } from 'express-graphql';
+import { app } from './app';
 
-const app = express();
+dotenv.config();
 
-app.listen(3001, () => {
-	console.log('Server started on port 3001');
+const { PORT } = process.env || 3001;
+
+app.listen(PORT, () => {
+	console.log(`Server started on port ${PORT}`);
 });
